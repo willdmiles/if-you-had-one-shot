@@ -3,7 +3,6 @@ library(tidyr)
 library(ggplot2)
 
 ## set working directory here --->>>
-setwd("~/Dropbox/Intellectual Outliers/NBER-wp/")
 ## ---      
       
 ## load market-year level dataset      

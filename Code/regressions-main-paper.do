@@ -1,6 +1,5 @@
 
 // set working directory here --->
-cd "/Users/williammiles/Dropbox/Intellectual Outliers/NBER-wp/"
 // ---
 
 

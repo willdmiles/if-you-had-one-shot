@@ -6,8 +6,6 @@ library(ggpubr)
 rm(list = ls())
 
 ## first set working directory
-setwd('~/Dropbox/Intellectual Outliers/NBER-wp/')
-
 
 ## create a folder to store simualtion results
 sim_results_folder <- 'REPLACE-WITH-YOUR-FOLDER-PATH'
