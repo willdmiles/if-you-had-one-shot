@@ -1,0 +1,52 @@
+\subsection{What is an approach?}
+
+For any technical problem where a solution is not yet known, there may be multiple potential approaches to solve it. Each approach represents a theory about the underlying causal structure that explains outcomes as a function of a set of inputs \citep{sorenson2024theory}. Consider the challenge of building a quantum computer. A key decision is how to create quantum particles, known as qubits. Different firms have adopted fundamentally distinct approaches to this problem. For example, IonQ creates physical qubits using trapped-ion technology.\footnote{For more details, see https://ionq.com/company} In contrast, Microsoft focuses on topological qubits, where quantum information is stored in a collective group of particles rather than in the state of a single one.\footnote{For more details, see https://azure.microsoft.com/en-us/solutions/quantum-computing/technology/} Meanwhile, Google employs superconducting circuits as synthetic qubits, encoding and manipulating quantum information in superconducting circuits cooled to extremely low temperatures.\footnote{For more details, see https://quantumai.google/quantumcomputer} The choice of approach represents a significant strategic bet. That is, among innovative companies working to solve a given problem---whether it be curing a disease, developing generative AI algorithms, or developing self-driving cars---the choice of approach is one of the most critical decisions they make.
+
+\subsection{Implementing experiments within an approach}
+
+The second component of experimentation is implementation, which involves putting an approach into action through specific experiments or trials. While firms may adopt the same approach, their success often hinges on how effectively they implement it. For example, in the case of quantum computing, Google is not the only company using superconducting qubits. Other firms, such as IBM, Rigetti, and Intel, have also chosen this approach but differ in their implementations of superconducting circuits. Even if superconducting circuits prove to be a viable pathway for building quantum computers, not all firms pursuing this approach will succeed. Their success will ultimately depend on the effectiveness of their specific implementations.
+
+\subsection{Two sources of experimental uncertainty}
+
+The distinction between approaches and implementations highlights two sources of uncertainty in any experiment, both of which are critical to understanding the outcomes of innovative efforts. The first is \textit{approach uncertainty}---whether the underlying hypothesis behind the approach is valid and capable of leading to an effective solution. The second is \textit{implementation uncertainty}---whether the firm can successfully execute the necessary steps, such as designing a superconducting circuit or synthesizing a lead compound to drug a target. Figure \ref{fig:approaches_and_implementation} maps experimental outcomes along two dimensions: whether the approach is correct or wrong, and whether the implementation is successful or unsuccessful.
+
+\begin{figure}[h]
+    \centering
+    \caption{\textsc{A 2x2 framework of experimentation: approaches vs. implementation}}
+    \includegraphics[width=.8\linewidth]{figures/approaches-and-implementations.pdf}
+    % \caption*{\scriptsize\emph{Notes:} }
+    \label{fig:approaches_and_implementation}
+\end{figure}
+
+\noindent The upper-left quadrant represents the ideal scenario, where the approach is valid and the specific implementation is successful. Examples of such experiments include the use of CRISPR technology to edit genes. In the top-right quadrant, the approach is valid, but a specific implementation fails. An example of this is the Wright brothers' early attempts to invent the airplane. While their concept for heavier-than-air flight was correct, several implementations were unsuccessful. The bottom row highlights cases where the approach is incorrect in the first instance, i.e., a dead end. The bottom-left quadrant is an interesting case where, despite a dead-end approach, a successful solution is found, such as the serendipitous discovery of penicillin by Alexander Fleming. Another example is the radio wave detector, the ``audion'', invented by Lee DeForest, which, though it worked, relied on the incorrect belief that a low-pressure gas inside the glass bulb was required.\footnote{https://en.wikipedia.org/wiki/Audion
+} Lastly, in the lower-right quadrant, the approach is wrong, and the subsequent implementation efforts also fail. For instance, early tungsten filament lightbulbs were plagued by blackening on the inside of the bulb, and the proposed approach was to improve the vacuum inside the bulb. Implementation efforts failed, and it later turned out that the approach was also incorrect before Irving Langmuir suggested filling the bulb with an inert gas. He correctly hypothesized that oxidation was not to blame. Instead, the heated filament itself was emitting electrons that were deposited on the glass surface, blackening it. Inert gases inside the bulb scattered the electrons, solving the problem.
+
+
+
+\subsection{Case Study: Experimentation in Alzheimer's Disease}
+
+The distinction between approaches and implementation underscores an important implication: outcomes of experiments relying on the same approach are correlated. This connection highlights a critical challenge for innovation when many firms converge on a single hypothesis or theory. A prominent example is drug development in Alzheimer’s Disease (AD). While numerous hypotheses exist about the causes of AD and potential ways to prevent its onset, an effective cure remains elusive. Compounding this difficulty is the considerable crowding around only a few approaches. Table \ref{tab:alzheimers-projects-by-target} reports the number of AD drug development projects initiated by leading hypotheses between 1998 and 2008. Nearly 40\% of projects focused on the beta-amyloid hypothesis, and almost 60\% targeted just two hypotheses: beta-amyloid and cholinergic.
+
+Although there have been three FDA-approved drugs to target beta-amyloids, their benefits are very modest.\footnote{One of these drugs---Aducanumab---was discontinued in late 2024 after its creator Biogen ``faced scrutiny of its pursuit of approval and the steep list price it set for a drug that many doctors and researchers said wasn’t fully proven to work.'' https://www.wsj.com/tech/biotech/biogen-ends-aduhelm-program-in-shift-of-alzheimers-resources-163c897a} These drugs are known to cause serious side effects, such as brain bleeds, and have minimal impact on slowing the progression of AD in very early-onset patients.\footnote{https://www.wsj.com/articles/new-alzheimers-drug-shows-positive-results-but-side-effects-11669766449} Adding to the concern, recent research has raised doubts about the legitimacy of key beta-amyloid science \citep{piller2024researchers, piller2022blots}. If the beta-amyloid hypothesis is ultimately incorrect, the effectiveness of a firm's implementation becomes irrelevant: \emph{all drug candidates relying on beta-amyloid will likely fail.}
+
+\begin{table}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Drug development projects started for Alzheimer's disease by hypothesis 1998-2008}}
+    \vspace{1em}
+    \input{tables/AD_projects_by_target}
+    \label{tab:alzheimers-projects-by-target}
+    \vspace{1em}
+    \caption*{\scriptsize\emph{Notes:} This table shows the distribution of drug development projects in Alzheimer's Disease between 1998 and 2008 by hypothesis. We include projects where we can identify the year in which preclinical development started and the target used. Our data describe the target that a drug is intended to act upon, not the broader underlying theory or hypothesis. For illustration purposes, in this table, we group targets into broader hypothesis groups. The beta-amyloid hypothesis includes drugs that target amyloid-beta, beta-secretase, adrenoceptor beta 1 and 2, and glutamate metabotropic. The cholinergic hypothesis includes drug projects that target cholinergic receptors and acetylcholine. Other hypotheses for AD include the tau hypothesis, mitochondrial cascade hypothesis, calcium homeostasis hypothesis, neurovascular hypothesis, inflammatory hypothesis, metal ion hypothesis, and lymphatic system hypothesis \citep{liu2019history}.}
+\end{table}
+
+\noindent Which firms are crowding into the beta-amyloid and cholinergic hypotheses? Figure \ref{fig:pfizer_vs_singletons} examines projects initiated between 2007 and 2008, comparing Pfizer---which launched six distinct AD drug development projects during this period—to the 18 firms that each initiated only one project in the same timeframe. This figure illustrates how a large-scale experimenter can contribute to greater diversity in approaches. Notably, only 2 out of Pfizer's 6 projects (33\%) focused on beta-amyloid drugs. In contrast, among the single-experiment firms, 8 out of 18 projects (44\%) targeted beta-amyloids. These results suggest that larger experimenters, such as Pfizer, are more likely to diversify their approaches, reducing the risk of correlated failures, whereas smaller experimenters---who make their decisions independently---tend to crowd into popular hypotheses, increasing systemic vulnerability to approach-level failure.
+
+
+\begin{figure}[h]
+    \centering
+    \caption{\textsc{AD projects started by hypothesis for Pfizer and single-shot firms 2007-2008}}
+    \includegraphics[width=.4\linewidth]{figures/pfizer_vs_singletons.pdf}
+    \label{fig:pfizer_vs_singletons}
+    \caption*{\scriptsize\emph{Notes:} This Figure compares the allocation of hypotheses across projects started by Pfizer to projects started by single-experimenter firms in 2007 and 2008. Single-experimenter firms are those which started only one AD drug development project in the period 2007-2008. We include projects where we can identify the year in which preclinical development started and the target used.}
+\end{figure}

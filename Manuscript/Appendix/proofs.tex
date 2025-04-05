@@ -1,0 +1,95 @@
+\section{Model Extensions}\label{app:proofs}
+
+While simulations are best suited to generalizing our model, we can formally extend the model to analyze the decision of the $n^{th}$ experiment after $n-1$ experiments in approach $a$. For simplicity, we set $\pi_a = \pi_b = \pi$. Instead, approach $a$ is assumed to be more promising than $b$ because $p_a > p_b$ for all experimenters.
+
+In addition, we relax our rent-sharing assumption. In the baseline model in the two-firm case, we assume that if both experiments are successful, only one experiment will capture value (with probability 0.50). In this extension, we consider the scenario where the probabilities of value capture can be lower. Concretely, this permits the scenario where two firms are successful, and they can both commercialize their innovations, but due to competition, the value they capture is less than $V/2$. We model rent dissipation with the parameter $k$ to analyze the effect of rent dissipation on the choice of approach.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% competition/multiple entries
+%% The choice of approach with $N$ periods and rent dissipation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Suppose there are $n$ firms and $n$ experiments in approach $a$ and 0 experiments in $b$, such that each firm is a single-experiment firm. A potential entrant in approach $a$ has a payoff of:
+\begin{equation} \label{eq: n in A A}
+\begin{aligned}
+    &p_a \pi \left((1-p_a)^n + \frac{1}{2+k}{n \choose 1}a(1-p_a)^{n-1} +\frac{1}{3+k}{n \choose 2}(p_a)^2(1-p_a)^{n-2} ... \frac{1}{n+1 + k}(p_a)^n \right) -c  \\
+    &= p_a \pi X(n,k) - c
+\end{aligned}
+\end{equation}
+Note that $X(n,k)$ is strictly less than unity, and decreases with the rent dissipation parameter $k$, because each of the terms $\dfrac{1}{n+1_k}p_a^n$ decreases with $k$. Note also that $X(n,k) - (1-p_a)X(n-1,k)$ is positive but falls with $k$. Formally,
+
+\begin{equation} 
+\begin{aligned}
+&X(n,k) - (1-p_a)X(n-1,k) = \\
+&\frac{1}{2+k}\left({n \choose 1}-{n-1 \choose 1}\right)a(1-p_a)^{n-1} + 
+\frac{1}{3+k}\left({n \choose 2}-{n-1 \choose 2}\right)p_a^2(1-p_a)^{n-2} \\
+&.. + \frac{1}{n+k}(p_a)^n > 0
+\end{aligned}
+\end{equation}
+That $X(n,k) - (1-p_a)X(n-1,k)$ decreases with $k$ follows upon noting that each terms, $\frac{1}{r+k}\left({n \choose r-1}-{n-1 \choose r-1}\right)p_a^{r-1}(1-p_a)^{n-1 - (r-1)}$, decreases with $k$.
+
+\subsection{Incentives to herd and scale of experimentation}
+\noindent Entering $b$ instead has a payoff of:
+\begin{equation} \label{eq: n in A B}
+    p_b \pi \left(\pi X + (1-\pi)\right) = p_b\pi^2 X(n,k)  + p_b \pi(1-\pi) -c
+\end{equation}
+
+\noindent The incentive to herd into approach $a$ for the single-experiment entrant is given by:
+\begin{equation}\label{eq herd small n}
+ \Delta_s =  \pi(p_a-\pi p_b)X(n, k) + \pi(1-\pi p_b)
+\end{equation}
+
+
+\noindent Now consider a potential multi-experiment firm, which has one experiment in $a$ along with $n-1$ other firms i.e., an incumbent. The payoff to this firm of a second experiment in $a$ is:
+\begin{equation} \label{eq: n in A A big}
+\begin{aligned}
+     &\pi(p_a(2-p_a) \left((1-p_a)^{n-1} + \frac{1}{2+k}{n-1 \choose 1}p_a(1-p_a)^{n-2} + ... \frac{1}{n + k}p_a^{n-1} \right) \\ 
+     &=  \pi X(n-1,k)p_a(2-p_a) - c
+\end{aligned}
+\end{equation}
+\noindent And their payoff from entering with approach $b$ is given by:
+\begin{equation} \label{eq: n in A B }
+\pi X(n-1,k)(a +\pi (1-a)b)+ b\pi(1-\pi)-c    
+\end{equation}
+
+\noindent Thus the incentive to herd in approach $a$ for the incumbent firm can be expressed:
+\begin{equation}\label{eq herd large n}
+   \Delta_M = \pi (1-p_a)X(n-1, k)(p_a-\pi p_b) + \pi (1-\pi)p_b
+\end{equation}
+
+\noindent It follows that $\Delta = \Delta_s - \Delta_M = \pi (1-\pi p_b) \left[X(n,k)-(1-p_a)X(n-1,k) \right] > 0$. That is, if the $(n+1)^{th}$ experiment is conducted by a new entrant, they will be more likely to experiment with approach $a$ compared to a multi-experiment firm who is incumbent with an existing experiment in approach $a$. Furthermore, $\Delta$ falls with $k$ because $X(n,k)-(1-p_a)X(n-1,k)$ falls with k. \textbf{That is, small-scale experimenters are more likely to herd than large-scale experimenters, but less so when rents are dissipated.}  
+
+
+\begin{comment}
+I commented this out because we do not have results about how crowded the approach is    
+\end{comment}
+
+\begin{comment}
+This tendency is also reflected in how sensitive firms are to how crowded approach $a$ is. To see this, consider $n_L^*$ such that the incumbent firm is indifferent between entering $a$ or $b$, i.e.,  $n_L^*$ is implicitly defined by $(1-p_a)X(n_L^*-1) = \dfrac{(1-\pi p_b)}{(p_a- \pi p_b)}$. Because $X(n_L^*,k) > (1-a)X(n_L^*, K) = \dfrac{(1-\pi b)}{(a- \pi b)}$, $\Delta_s > 0$. \textbf{In other words, as the number of experiments in $a$ increases, the multi-experiment firm will switch to $b$ before a single-experiment entrant.}
+
+We can obtain an analogous result for the attractiveness of the alternative approach $p_b$. Define a threshold value $p_b^*$ where a new entrant (single experimenter) is indifferent between $a$ and $b$, so that $p_b > p_b^*$ implies that the entrant prefers to enter $b$.  The threshold is given by:  
+\begin{equation} \label{eq: threshhold b*}
+\begin{aligned}
+p_b^*=\frac{p_aX(n,k)}{\pi X(n,k) + (1-\pi)} 
+\end{aligned}
+\end{equation}
+
+Let $p_b^{**}$ be the threshold such that an incumbent (potential multi-experimenter) is indifferent between $a$ and $b$.  Then $p_b^{**}$ is given by   
+\begin{equation}\label{eq: threshold b**}
+    p_b^{**}=\frac{p_a(1-p_a)X(n-1,k)}{\pi(1-p_a)X(n-1,k) +(1-\pi)}
+\end{equation}
+
+\noindent Note that $p_b^* > p_b^{**}$ because $X(n,k) \geq (1-p_a)X(n-1,k)$. That is, the threshold value of $p_b$ such that the multi-experiment firm is indifferent between $a$ and $b$ is smaller than the single-experiment entrant. \textbf{For any given $a$, there is a range, [$p_b^{**}, p_b^{*}$], such that a multi-experiment firm would enter $b$ whereas a single-experiment firm would continue to herd in $a$.} 
+
+
+Then we can specify the following facts about $b^*$:
+
+\begin{itemize}
+   \item $b^*$ increases with $X$, so that it decreases with $n$ \& $k$
+   \item $b^*$ increases with $a$   %% \todo{check. X depends on a as well}
+   \item $b^*$ increases with $\pi$ because $\pi X +1-\pi$ falls with $\pi$
+\end{itemize}
+
+In sum, because $b^*$ falls with $n$, as the number of experiments in an approach increase, future experiments are more likely to choose the other approach. Because $b^*$ increases with $\pi$, the switch happens faster when the approaches are less promising.     
+\end{comment}
+

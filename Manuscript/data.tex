@@ -1,0 +1,87 @@
+
+\subsection{Empirical Context: Early-stage drug development}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MOTIVATE THE SETTING 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The ideal empirical setting for us is one where there are a variety of possible approaches to a complex, technical problem, and firms enter with one or more experiments. One key requirement is that experimentation must be expensive. If experiments were cheap, all firms would naturally pursue multiple approaches, as in settings like software development `a la \citet{koning2022experimentation}. 
+
+Another desirable feature is that more successes do not create more private value in the aggregate and that competition among successful firms does not fully dissipate the total private value either. Therefore, we want to focus on situations where the incremental value of an additional success is small, both privately and in the aggregate, and where successful firms can differentiate sufficiently to limit rent dissipation through competition.
+
+We use early-stage drug development as the empirical testbed for our model. The development of novel therapeutic drugs is a technologically intensive, high-cost industry where, in many cases, one drug captures a significant majority of the market in a disease area.\footnote{This is true at least during the first 15-20 years that the drug is on the market and still has patent protection.} The potential reward from success is substantial, but so is the cost of experimentation \citep{dimasi2016innovation}.
+
+The drug development process can take up to 15 years \citep{hughes2011principles} and consists of three main stages: discovery, pre-clinical research, and human clinical trials \citep{frankel2023evaluation}. Data on the discovery process are typically unavailable to archival researchers since these contain secret developments that firms do not want their competitors to know about and will, therefore, not leave a paper trail \citep{krieger2022missing}. However, progression to pre-clinical research is increasingly reported. The choice to move a project into pre-clinical testing is a good approximation for the conditions of our model. Namely, it involves an important choice about what biological target to drug, which is largely informed by scientific knowledge in the public domain \citep{knowles2003target}. Evaluating the promise of a target has also benefited from the recent surge in the availability of big data \citep{chen2016leveraging} and machine learning algorithms \citep{dara2022machine}. In the context of our theoretical framework, we define an approach as the choice of therapeutic target \citep{thomke1998modes, tranchero2023finding}, and an implementation as the action of testing the drug-target combination in a preclinical trial. An experiment should be thought of as choosing a target to drug in a pre-clinical trial.
+
+%%%%%%%%%
+%% DATA
+%%%%%%%%%
+
+The first data source we use is Pharmaprojects, a commercial database curated by Citeline. Pharmaprojects provides comprehensive global drug research and development history. Drugs are tracked from early pre-clinical development through market launch and are retained regardless of their outcome. New drugs and events for existing drugs are added to the database daily after a thorough editorial process governed by industry experts who scour thousands of sources in the public domain (e.g., press releases).
+
+We collect data from the Pharmaprojects Trends database, which provides annual updates for the status of drug development projects since 1995.\footnote{These data were downloaded in August 2024.} A status corresponds to a clinical trial phase or the drug being discontinued or launched. It is important to distinguish between a lead compound and a drug development project. For our purposes, a drug development project concerns the clinical trials (development) for a lead compound intended for a particular therapeutic class.\footnote{In Pharmaprojects, a therapeutic class most closely resembles the Anatomical Therapeutic Chemical (ATC) Classification Level 3, which represents chemical, pharmacological, or therapeutic subgroups.} We highlight this distinction as it is common for a lead compound to be in clinical trials for more than one therapeutic application. The raw data contain 46,390 distinct lead drug compounds, which correspond to 98,784 drug development projects (i.e., a lead compound is, on average, in development for two therapeutic indications). We keep projects where (i) we can identify the year in which pre-clinical trials began,\footnote{Furthermore, although the data begin in 1995, we do not have the information to deduce whether projects that first appear in 1995 also began in that year. We thus drop any projects that first appear in the data in 1995. We also drop projects that began in 2024 as the data are incomplete for this year.} (ii) the organization leading the project is a for-profit firm, and (iii) projects where we can identify the biological target that the drug is intended to act upon. These data also allow us to observe important outcomes for each project, namely if the project advances to phase 1 clinical trial and if the project results in a drug launch. After these cleaning steps, we have 49,866 drug development projects started by 3,845 firms over 28 years between 1996 and 2023 in 241 therapeutic classes.
+
+We also collect data from two additional sources. First, from \emph{Pitchbook} we collect data on firm founding years and ownership status. We use a fuzzy matching algorithm to match Pharmaprojects to Pitchbook by firm name (see Appendix \ref{app:matching_pharma_to_pitch} for an explanation of the match and its accuracy). Second, we collect data from the GWAS catalog, a record of all scientific publications in top-tier journals reporting the discovery of new target-disease correspondences \citep{tranchero2023finding}. We use these data to measure the rate of new target discovery across therapeutic classes over time.
+
+\subsection{Variable Construction}
+
+Recall that our model, though based on individual firm-level behavior, addresses market-level rather than firm-level outcomes. Diversity at the individual firm level has little meaning for single-experiment firms. More substantively, the rate of technological advance depends on whether at least one of the experiments launched in the market succeeds.
+
+Our unit of analysis is the market, which we define as a therapeutic class-year($i,t$) observation. The choice of time period within which to define a market is somewhat arbitrary. We define market observations within a year, as this will be most consistent with the no updating of beliefs within an observation period: a firm that starts two projects in the same therapeutic class year does not know the outcome of the first project before starting the second. In Appendix \ref{app:robustness}, we replicate our baseline results for two- and 5-year windows and find qualitatively similar trends. We collapse the project-level data to the therapeutic class-year level and then construct market-level variables of interest. We only include therapeutic class-years with (i) at least two firms and (ii) at least two approaches, because when only one target is in use, there is, by construction, no diversity in approaches.
+
+Tables \ref{tab:summary_stats} and \ref{tab:correlation_matrix} present descriptive statistics and the correlation matrix for the variables in our market-level dataset. The dataset comprises 2,523 observations at the therapeutic class-year (market) level, spanning 139 therapeutic classes. On average, each market features 9.8 distinct approaches deployed across 11.6 experiments, 13.8\% of the experiments are initiated by multi-experiment firms, and the average firm conducts 1.2 experiments.
+
+\begin{table}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Descriptive Statistics}}
+    \vspace{1em}
+    \resizebox{\textwidth}{!}{
+        \input{tables/descriptive_statistics}
+    }
+    \label{tab:summary_stats}
+    \vspace{1em}
+    \caption*{\scriptsize\emph{Notes:} This table presents descriptive statistics for all variables in our therapeutic class--year ($i, t$) dataset, of which there are $N=2,523$ observations. For some variables, there are fewer observations and/or there are missing data. The lagged measures of \emph{Average Experimenter Scale ($t-1$)} and \emph{Multi-Experimenter Share ($t-1$)} have 2,384 observations, as we do not have data for the first year in our sample (1996). Only 809 observations have values for \emph{ln(Discovery)} due to the matching required between Pharmaprojects and GWAS (See Appendix \ref{app:matching_pharma_to_gwas} for more details). Similarly, \emph{Average Firm Age} was calculated for the 2,447 observations where at least one firm was matched to Pitchbook. 
+    }
+\end{table}
+
+
+\begin{table}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Correlation Matrix}}
+    \vspace{1em}
+    \resizebox{\textwidth}{!}{
+        \input{tables/correlation_matrix}
+    }
+    \label{tab:correlation_matrix}
+    \vspace{1em}
+    \caption*{\scriptsize\emph{Notes:} This table details the correlation coefficient between all variables in our therapeutic class--year ($i, t$) dataset, of which there are $N=2,523$ observations. For some variables, there are fewer observations and/or there are missing data. The lagged measures of \emph{Average Experimenter Scale ($t-1$)} and \emph{Multi-Experimenter Share ($t-1$)} have 2,384 observations, as we do not have data for the first year in our sample (1996). Only 809 observations have values for \emph{ln(Discovery)} due to the matching required between Pharmaprojects and GWAS (See Appendix \ref{app:matching_pharma_to_gwas} for more details). Similarly, \emph{Average Firm Age} was calculated for the 2,447 observations where at least one firm was matched to Pitchbook. 
+    }
+\end{table}
+
+\noindent \textbf{Market Diversity of Approaches.} We measure the market-level diversity of approaches using Shannon entropy \citep{shannon1948mathematical}, a popular measure used in ecology to quantify the abundance and evenness of species present in a community \citep{margalef}. Shannon entropy has also recently appeared in studies of the science of science to quantify the certainty of knowledge \citep{kang2024scientific}. Formally, \emph{Target Diversity} is defined by:
+\begin{equation*}
+    Target\ Diversity_{i, t} = -\sum\limits_{k=1}^{n}{p_k}\ln{p_k}
+\end{equation*}
+
+Where $p_k$ is the proportion of projects using target $k$ for all drug development projects in disease $i$ started in year $t$.\footnote{Using the Herfindahl–Hirschman index gives very similar results, as shown in Appendix Table \ref{app:hhi}.}
+
+\noindent \textbf{Success of Experimentation.} We create two success measures. We define the success of a drug development project as (i) whether the project advances from pre-clinical experimentation to phase 1 clinical trial and (ii) whether the project results in a drug being launched in the market. We look at these two milestones as representing related but different types of success. Progression to phase 1 clinical trials can be interpreted as a predominant signal of \emph{technical} success and is our preferred outcome for testing our theory. A project will only progress to human trials if the preclinical trial provides substantial evidence of safety and efficacy. While drug launch also signals technical success insofar as the drug has been proven safe and effective in humans, it also represents \emph{commercial} considerations. The cost of bringing a drug rises steeply through the latter stages of human clinical trials. Hence, a firm's decision to proceed with later stages also depends on economic factors such as expected competition from drugs by other firms in the market and in their development pipeline.
+
+We create two variables based on these measures: the first is a dummy indicator equal to 1 if in market-year ($i, t$) \emph{at least one} project succeeds, and the second measure is the \emph{share} of successful projects.
+
+\noindent \textbf{Experimenter Scale.} The main independent variable in our analysis captures the distribution of experimenter scale within a market. Our preferred measure, \emph{Average Experimenter Scale}, is defined as the average number of drug development projects initiated (i.e., beginning preclinical trials) by firms in therapeutic class $j$ in year $t$. We also create the variable \emph{Multi-Experiment Share}, which represents the share of firms in market-year ($i, t$) that initiate preclinical trials for two or more distinct projects. These measures are highly correlated, with a Pearson correlation coefficient of 0.82. Thus, we do not report results with \emph{Multi-Experiment Share} as they are similar to specifications that use \emph{Average Experimenter Scale}. See also Appendix \ref{app:case-study} for a discussion of measurement error and its implications for our results.
+
+\noindent \textbf{Discovery.} The variable \emph{ln(Discovery)} is the natural logarithm of the count of publications in GWAS in year $t$ that are the first to report a relationship between a target and therapeutic class $i$. The GWAS catalog only reports the disease and/or trait that a particular study addresses, so to match these data to Pharmaprojects, we create a correspondence between diseases/traits and therapeutic classes (the details of this correspondence are explained in Appendix \ref{app:data}).
+
+% \todo[inline]{GWAS is only for diseases due to genetic mutations - though that might be the bulk of the diseases}
+
+\noindent \textbf{Firm Age.} We collect firm founding year data from Pitchbook, which we match by firm name to Pharmaprojects (see Appendix \ref{app:data}). We create the market-level measure \emph{Average Firm Age}, which is the average age of all distinct firms that start preclinical experimentation for a new drug development project in therapeutic class $i$, year $t$.
+
+\noindent \textbf{Control Variables.} In all specifications, we include \emph{ATC-1$\times$Year} fixed effects \citep{branstetter2022generic}. ATC-1 represents the first level in the anatomical therapeutic class classification and most closely resembles distinct industry classifications, such as Neurology, Cardiovascular, and Dermatologicals. This interacted fixed effect thus captures time-varying differences in industry-specific characteristics, such as technology or demand shocks.
+
+The number of approaches and experiments dictates the range of possible values for Shannon entropy. For example, with two approaches and two firms, the only possible value of Shannon entropy is $-(\frac{1}{2}\ln\frac{1}{2} + \frac{1}{2}\ln\frac{1}{2})=0.693$. But with ten firms, where each firm does one experiment, Shannon entropy can range from $-\ln\frac{1}{2}=0.693$ where five firms use one approach and five firms use another, to $\ln10=2.303$ where each firm uses a different approach. Additionally, the number of firms in a market may influence the average size of any experimenter. For example, in a saturated market with low demand but many competitors, firms may be discouraged from pursuing subsequent projects. Accordingly, we include a set of market structure controls, which in all tables are denoted as \emph{Market Structure Controls}. This includes the number of firms, targets, and projects started for each therapeutic class--year.
+
+
+

@@ -1,0 +1,19 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\hline\hline
+                                        &\multicolumn{2}{c}{Target Diversity}       &\multicolumn{2}{c}{\shortstack{Share of\\ Pre-Clinical Success}}&\multicolumn{2}{c}{\shortstack{At least 1\\Pre-Clinical Success}}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+                                        &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+\hline
+Average Experimenter Scale              &       0.730\sym{***}&       0.569\sym{***}&      -0.026\sym{***}&      -0.030\sym{***}&                     &                     \\
+                                        &     (0.205)         &     (0.096)         &     (0.005)         &     (0.007)         &                     &                     \\
+Target Diversity                        &                     &                     &                     &                     &       0.204\sym{***}&       0.288\sym{***}\\
+                                        &                     &                     &                     &                     &     (0.017)         &     (0.020)         \\
+\hline
+Market Structure Controls               &          No         &         Yes         &          No         &         Yes         &          No         &         Yes         \\
+ATC-1$\times$Year FE                    &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+Observations                            &       1,557         &       1,557         &       1,557         &       1,557         &       1,557         &       1,557         \\
+Adj R-squared                           &       0.148         &       0.741         &       0.070         &       0.069         &       0.237         &       0.259         \\
+\hline\hline
+\end{tabular}
+}

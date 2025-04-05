@@ -1,0 +1,113 @@
+We begin by formalizing the core elements of our setup, then analyze how firm-level experimental scope affects approach diversity and the likelihood of successful innovation at the market level.
+
+\subsection{A model of market structure and approach diversity}
+
+In this section, we develop a model examining how firms choose between experimental approaches to solve innovation problems with uncertain solutions where a single success is sufficient for the market. The model explores how market structure--- the presence of many small versus few large experimenters---affects the diversity of approaches pursued and market-level outcomes. Our model has four key elements that capture the essential features of collective experimentation in innovation. First, we distinguish between approaches and implementations. Second, even the most promising approach is not certain to be viable, i.e., there is a non-zero probability that it could be a dead-end. Third, we assume that the combined payoff to all successful experiments is fixed and divided between all successful firms. In particular, a successful experiment yields a positive private payoff, but diminishes in proportion to the number of successful firms, and a second success for the same firm has no incremental value. Finally, beliefs are static and there is no learning.
+
+\subsection{Approaches versus implementations}
+
+Suppose there are two potential approaches $\{a, b\}$ from which a firm can choose to solve a problem. Let $\pi_a$ and $\pi_b$ represent the known probabilities that approach $a$ and $b$, respectively, are viable solutions to the problem. We represent the probability that the implementation of approaches $\{a, b\}$ is effective with $\{p_a, p_b\}$. That is, an experiment in approach $a$ has a probability of success of $p_a\pi_a$, and the probability of success with approach $b$ is $p_b\pi_b$. There is a common belief that $a$ is the more promising approach so that $\pi_a p_a> \pi_b p_b$.Suppose a firm conducts two experiments, one in each approach. Let $x_a=1$ if the experiment in $a$ succeeds and $x_b=1$ if the experiment in $b$ succeeds. Since the approaches are independent (the viability of approach $a$ is not related to the viability of approach $b$), we have that  $    Cov(x_a, x_b) = \pi_a \pi_b a b - (\pi_a a)(\pi_b b) = 0     $. Consider a firm that conducts two experiments, both using approach $a$. Because the experiments use the same approach, their expected outcomes are correlated because $Cov(x_a, x_b) = \pi_a a^2 - (\pi_a a)(\pi_a a) = a^2 \pi_a (1-\pi_a) > 0$.
+
+Let $v$ be the value from a successful experiment and $c$ be the cost. All firms derive the same value from an experiment and face the same cost.\footnote{Allowing some firms to appropriate higher rents from the same innovation \citep{cohen1996firm} affects the number of experiments (i.e., the decision to enter) but not the choice of approach.} As noted earlier, only one success matters and the incremental benefit from the second success is zero \citep{dasgupta1987simple}. Thus, for a firm with two experiments, two successes yield the same payoff as one success. If two independent firms succeed, they split the payoff. A firm with two experiments has an incentive to hedge by choosing a different, even if less promising, approach for its second experiment. 
+
+\subsection{Single and Multi-Experiment Firms and Market-Level Approach Diversity}
+
+
+If firm $i$ uses approach $a$, its expected payoff is $vp_a\pi_a - c$, and if it uses approach $b$, its expected payoff is $vp_b\pi_b - c$. Given our assumptions, the firm should choose approach $a$ for their experiment if $vp_a\pi_a - c \geq 0$, and othewerise not enter at all. We now analyze the choice of approach for the next experiment under two scenarios: first, where a separate firm $j$ considers the second experiment, and second, where firm $i$ itself conducts the second experiment.
+
+\noindent \textbf{Case 1 -- Two single-experiment firms:} A separate firm $j$ observes firm $i$'s decision to use approach $a$, but firm $i$'s experiment is ongoing, so outcomes are unknown. Given this information, and that only one experiment can succeed and earn rents, firm $j$'s expected payoff from also using approach $a$ is ${v\pi_a}\left[p_a(1-p_a) + \frac{1}{2}p_a^2\right] - c$. Intuitively, firm $j$'s payoff is the probability that only its experiment is successful, plus half the probability that both firms are successful (since there is an even chance that firm $j$ wins when both succeed). Note that both probabilities depend on $\pi_a$, the probability that approach $a$ is viable. If firm $j$ instead decides to use approach $b$, its expected payoff is $v\left[\pi_b{p_b}(1 - \pi_a{p_a}) + \frac{1}{2}\pi_a\pi_bp_ap_b\right] - c$. The difference between these expected payoffs, by $\Delta_S = v\left[\pi_ap_a\left(1-\frac{1}{2}p_a\right) - \pi_bp_b\left(1 - \frac{1}{2}\pi_ap_a\right)\right]$, where $\Delta_s$ represents the single-experiment firm's incentive to `herd' into approach $a$, following the crowd despite its being the more crowded path.
+
+\noindent \textbf{Case 2 -- One multi-experiment firm:} Instead of firm $j$, suppose firm $i$ is considering a second experiment. As before, we assume the outcome of the first experiment is unknown. If firm $i$ chooses to conduct its second experiment in approach $a$ also, its expected payoff becomes $v\pi_a\left(1 - (1 - p_a)^2\right) - 2c$. Since firm $i$ already has an experiment in approach $a$ and there is no additional benefit to a second success, this payoff represents one minus the probability of failing in both experiments, minus the cost of two experiments. If firm $i$ instead conducts its second experiment in approach $b$, its expected payoff is $v\left[{\pi_a}p_a(1-{\pi_b}p_b) + {\pi_b}p_b(1 - {\pi_a}p_a) + \pi_a\pi_bp_ap_b \right] - 2c$. Taking the difference between these expected payoffs, we can derive an expression for firm $i$'s incentive to use approach $a$ in its second experiment: $\Delta_M = v\left[\pi_ap_a(1-p_a)-\pi_bp_b(1- \pi_ap_a)\right]$
+
+% \begin{equation}
+% \Delta_M = \pi\left[(p_a - p_b) - p_a(p_a - \pi{p_b})\right]
+% \end{equation}
+
+We can now compare each firm's incentive to crowd into the dominant approach: the multi-experiment firm's incentive $\Delta_M$ versus the single-experiment firm's incentive $\Delta_S$.
+
+\begin{equation}
+\Delta = \Delta_M - \Delta_S = \frac{1}{2}v\pi_ap_a\left[\pi_bp_b-p_a\right] \leq 0 \iff \pi_bp_b \leq p_a
+\end{equation}
+
+\noindent A multi-experiment firm is less likely to crowd into the dominant approach than two single-experiment firms when $p_a > \pi_bp_b$, which always holds given our assumption that $\pi_ap_a > \pi_bp_b$ (approach $a$ is more promising). That is, a single firm conducting two experiments is more likely to try different approaches than two separate firms.
+
+This simple two-experiment case demonstrates that approach diversity increases when one firm conducts both experiments rather than when two firms each conduct one. This occurs because \textit{a multi-experiment firm maximizes its chance of at least one success, reducing correlation in outcomes by trading off success probability per attempt.}
+
+\begin{hypothesis}\label{prop:model-choice}
+    Holding the number of experiments constant, a firm pursuing multiple experiments will explore a greater variety of approaches compared to an equivalent number of projects, each pursued by a separate firm.
+\end{hypothesis}
+
+\noindent Given the choices of approach for single and multi-experiment firms, the intuition for the expected outcomes is straightforward. If single-experiment firms are more likely to use the most promising approach in their experiments, each has a probability of success is $\pi_a p_a$, whereas for a multi-experiment firm it is $\frac{1}{2}(\pi_a p_a + \pi_b p_b) < \pi_a p_a$. That is, we expect a higher share of individual experiments to succeed than those of multi-experiment firms.
+
+\begin{hypothesis}\label{prop:model-outcomes}
+    Small-scale experimenters are more likely to be successful in an individual experiment than large-scale experimenters. Therefore, markets with a higher share of small-scale experimenters will have a higher share of successful experiments.
+\end{hypothesis}
+
+\noindent However, what matters for market outcomes is maximizing the probability of at least one successful experiment. A multi-experiment firm will diversify only when that maximizes this probability, i.e., when $\Delta_M \leq 0$. Yet the expression for the second independent experiment, $\Delta_S$, is strictly greater than $\Delta_M$. Thus, for some parameter values, we have $\Delta_S > 0 > \Delta_M$. In this range, two single-experiment firms would both use the dominant approach, while one firm conducting both experiments would use different approaches. Critically, the probability of at least one success would be \textit{lower} with two single-experiment firms.\footnote{As an example, consider $\pi_a = 0.5, \pi_b =0.4, p_a=0.5, p_b=0.5$. The probability of at least one success with two single-experiment firms is 0.375, whereas with a single firm conducting both experiments, it is 0.4.} Outside this range, the approach choices would be identical. Put differently, a multi-experiment firm would choose two distinct approaches when this maximizes the probability of at least one success. More formally, the market-level probability of at least one success is maximized with two distinct approaches if and only if:
+
+\begin{equation}\label{eq: delta m < 0}
+    \begin{aligned}
+    \Delta_M &= v\left[\pi_ap_a(1-p_a)-\pi_bp_b(1-\pi_ap_a) \right] \leq 0 
+    \iff &\frac{\pi_bp_b}{\pi_ap_a} > \frac{1-p_a}{1-\pi_ap_a}
+    \end{aligned}
+\end{equation}
+
+
+
+Because $\pi_a p_a > \pi_b p_b$, a \textit{necessary} condition for approach diversity with a multi-experiment firm is that $\pi_a < 1$, as otherwise the inequality in equation \ref{eq: delta m < 0}'s second line cannot hold. When $p_a = 1$, the inequality must hold, providing a sufficient condition. This indicates that uncertain approaches combined with effective implementation increase the likelihood that markets with diverse approaches yield a higher probability of at least one success.
+
+
+\begin{hypothesis}\label{prop:atleastone}
+    Markets with greater approach diversity in experimentation have a higher probability of at least one success.
+\end{hypothesis}
+
+
+\begin{table}[h!]
+    \centering
+    \footnotesize
+    \caption{\textsc{Summary of Propositions}}
+    \vspace{1em}
+    \input{tables/propositions}
+    \label{tab:propositions_summary}
+    \vspace{1em}
+\end{table}
+
+In Appendix \ref{app:proofs}, we generalize to multiple firms and show that the results continue to hold.  We also show that when competition between two successful firms dissipates rents, firms will switch to choosing the less promising approach sooner.  That is, the difference in incentives to diversify between single and multi-experiment firms will shrink when the total private value of innovation shrinks with the number of successful innovators.
+
+Generalizing beyond two approaches and two possible experiments to multiple approaches and multiple firms involves considerations of competition and and order of entry into experimentation, which is not analytically tractable. Simulation results reported in the appendix \ref{app:simulations} indicate that the main intuition is robust to extending to multiple potential entrants and more than two approaches. An increase in the share of multi-experiment firms increases market diversity, lowers average success rates, and lowers the probability of total failure (i.e., increases at least one market-level success).
+
+% \subsection{Generalizing the model using simulations}\label{subsection:sims}
+
+% In the model developed above, there are two important assumptions underlying its basic intuition. First, the total value that can be captured by successful firms is independent of the number of successful firms - meaning the total profit from successful experiments by independent firms stays constant. Specifically, a firm with two successful experiments earns the same payoff as if it had only one successful experiment. This implies that competition among successful firms does not dissipate rents but merely distributes the total payoff in some fashion. The second assumption is that the validity of approaches is uncertain. Firms choosing the same approach are more likely to succeed or fail together than firms choosing different approaches, meaning value diversion is more likely when firms choose the same approach. In other words, firms choosing the same approach have correlated outcomes, whose effect is not fully integrated into individual firms' decisions. However, this correlation arises only if $\pi \neq 1$; if $\pi = 1$, the probability of success depends solely on implementation. Thus, firms will choose the approach with which they have the highest probability of implementation success. Target diversity at the market level would simply reflect differences in implementation ability for different approaches.
+
+% Generalizing beyond two approaches and two possible experiments to multiple approaches and multiple firms involves considerations of competition and order of entry into experimentation. While this is not analytically tractable, simulations indicate that the main intuition is robust, as shown in Figure \ref{fig:simulations}. We simulate firms choosing between two approaches,\footnote{We also explore cases with more approaches and where new approaches are discovered during simulation. These results are in Appendix \ref{app:simulations}} $a$ and $b$, where $\pi_a < \pi_b$. Firms continue to enter until it becomes unprofitable with either approach (see Appendix \ref{app:simulations} for simulation details).
+
+% In panel \ref{subfig:sims_choice}, we link the market-level share of multi-experiment firms to the diversity of approaches used. Maximum diversity would be an even split between approach $a$ and $b$, with target diversity defined as one minus the share of experiments using approach $a$. Our simulations support the analytical prediction that greater approach diversity occurs when firms conduct multiple experiments on average. In panels \ref{subfig:sims_success_share} and \ref{subfig:sims_choice_to_outcomes}, we show results from simulations predicted by Propositions \ref{prop:model-outcomes} and \ref{prop:atleastone}. Markets with a greater share of multi-experiment firms have a lower individual experiment success rate. However, in markets with greater approach diversity---associated with more multi-experiment firms---we observe a higher probability of at least one experiment succeeding.
+
+% \begin{figure}[h!]
+% \caption{\textsc{Simulation Results}}
+% \label{fig:simulations}
+%     \centering
+%     \begin{subfigure}[t]{.3\textwidth}
+%         \centering
+%         \caption{}
+%         \includegraphics[width=\linewidth]{figures/sims_choice.pdf}
+%         \label{subfig:sims_choice}
+%     \end{subfigure}
+%     \begin{subfigure}[t]{.3\textwidth}
+%         \centering
+%         \caption{}
+%         \includegraphics[width=\linewidth]{figures/sims_success_share.pdf}
+%         \label{subfig:sims_success_share}
+%     \end{subfigure}
+%     \begin{subfigure}[t]{.3\textwidth}
+%         \centering
+%         \caption{}
+%         \includegraphics[width=\linewidth]{figures/sims_choice_to_atleastone_successe.pdf}
+%         \label{subfig:sims_choice_to_outcomes}
+%     \end{subfigure}
+% \caption*{\scriptsize\emph{Notes:} These figures report binned scatter plots of our simulation results, illustrating the relationships predicted by each proposition. We simulate 1500 markets, creating variation in the share of large-scale experimenters by exogenously shifting the share of firms that have a high cost of experimenting. A detailed explanation of the simulation logic is provided in Appendix \ref{app:simulations}. This simulation uses the following parameters: $\pi_a = 0.4$, $\pi_b = 0.2$, $p_a = p_b = 0.3$.}
+% \end{figure}
+
+
+

@@ -1,0 +1,109 @@
+\section{Robustness Analysis}\label{app:robustness}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{lighttable}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Replication of baseline results with unproven targets only}}
+    \vspace{1em}
+    \centering
+            \input{tables/robustness/drop-targets-where-pi-equals-one}
+    \vspace{1em}
+    \label{app:drop_pi_equal_one}
+    \caption*{\scriptsize\emph{Notes:} These table replicate the baseline results from Table \ref{tab:baseline-regressions-all-props}, where the underlying dataset has been modified to exclude projects using targets which have been targeted by at least one launched drug in the same therapeutic class. all models are estimated with OLS. Robust standard errors clustered at the ATC-1 level are shown in parentheses. Significance codes: * p<.1, ** p<.05, *** p<.01 
+    }
+\end{lighttable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{lighttable}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Replication of key results with market defined in longer time windows}}
+    \label{app:longer_time_windows}
+    \vspace{1em}
+    \begin{minipage}{\textwidth}
+    \centering
+    \caption*{(a) Unit of Observation = Therapeutic Class---Two Year Period}
+            \input{tables/robustness/2yearwindow}
+
+  \end{minipage}
+    \begin{minipage}{\textwidth}
+    \vspace{1em}
+    \centering
+    \caption*{(b) Unit of Observation = Therapeutic Class---Five Year Period}
+            \input{tables/robustness/5yearwindow}
+  \end{minipage}
+    \vspace{1em}
+    \caption*{\scriptsize\emph{Notes:} These table replicate the baseline results from Tables \ref{tab:baseline-regressions-all-props}, where the underlying dataset has been modified to allow for longer time windows. In the original results, we defined the unit of observation---a market---as a therapeutic class--year. In Panel (a), the unit of observation is a therapeutic class--two year period i.e., 1996-1997 is period 1, 1998-1999 is period 2, and so on. In Panel (b), the unit of observation is a therapeutic class--five year period i.e., 1996-2000 is period 1, 2001-2005 is period 2, and so on. Robust standard errors clustered at the ATC-1 level are shown in parentheses. Significance codes: * p<.1, ** p<.05, *** p<.01 
+    }
+\end{lighttable}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HHI & DRUG LAUNCH
+
+
+\begin{lighttable}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Replication of key results with HHI and Drug Launch}}
+    \label{app:alternative_measures}
+    \vspace{1em}
+    \begin{minipage}{\textwidth}
+    \centering
+    \caption*{(a) Measuring Diversity with HHI}
+            \input{tables/robustness/HHI}
+
+  \end{minipage}
+    \begin{minipage}{\textwidth}
+    \vspace{1em}
+    \centering
+    \caption*{(b) Measuring Success with Drug Launch}
+            \input{tables/robustness/success_as_launch}
+  \end{minipage}
+    \vspace{1em}
+    \caption*{\scriptsize\emph{Notes:} 
+    Panel (a) replicates the baseline results from Table \ref{tab:baseline-regressions-all-props}, where the variable Target Diversity has been replaced with HHI. A higher HHI value indicates that experiments are concentrated in a handful of approaches, and thus the market is less diverse. Panel (b) replicates the baseline results from Table \ref{tab:baseline-regressions-all-props} where we define success as a drug development project ultimately leading to a drug product launch. Robust standard errors clustered at the ATC-1 level are shown in parentheses. Significance codes: * p<.1, ** p<.05, *** p<.01 
+    }
+\end{lighttable}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2SLS
+
+\begin{lighttable}[h!]
+    \centering
+    \scriptsize
+    \caption{\textsc{Two-stage least-squares (2SLS)}}
+    \vspace{1em}
+    \centering
+            \input{tables/robustness/2sls}
+    \vspace{1em}
+    \label{app:2sls}
+    \caption*{\scriptsize\emph{Notes:} This table replicate the baseline results from column (2) of Table \ref{tab:baseline-regressions-all-props}, using lagged experimenter scale as an instrument. Robust standard errors clustered at the ATC-1 level are shown in parentheses. Significance codes: * p<.1, ** p<.05, *** p<.01 
+    }
+\end{lighttable}
+
+
+
+
+
+% \begin{lightfigure}[h!]
+% \caption{A DAG motivating our 2SLS instrumental variable design}
+%         \centering
+%         \includegraphics[width=\linewidth]{figures/2sls-dag.pdf} 
+% \label{fig:dag}
+% \end{lightfigure}
